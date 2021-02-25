@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+    <head>
+        <link href="index.css" type="text/css" rel="stylesheet">
+        <title>Text-Speech Converter</title>
+    </head>
+    <body>
+            <div class="main">
+            <H1>Text To Speech</H1>
+                <label><strong>Text:</strong></label>
+            <input type="text" id="mytext" value="Type what you want to speak"><br>
+            <button onclick="show()">Speak</button>
+                <p id="demo"></p>
+            </div>
+        <script>
+            function show(){
+                    let msg = document.getElementById("mytext").value;
+                    document.getElementById("demo").innerHTML=msg;
+                    let bot = new SpeechSynthesisUtterance();
+                    bot.lang = "en-INDIA";
+
+                    bot.text = msg;
+                    bot.volume = 1;
+                    bot.rate = 1;
+                    bot.pitch = 1;
+
+                    window.speechSynthesis.speak(bot);
+            }
+        </script>
+    </body>
+</html>
